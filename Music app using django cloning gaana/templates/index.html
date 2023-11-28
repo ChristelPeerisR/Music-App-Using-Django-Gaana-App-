@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+    {% block content %}
+
+        <!-- Trend -->
+        <section class="col-sm-12 tp">
+            <div id="carouselpickControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            {% for thumb_fr in thumb_frs %}
+                            <div class="col-sm-4">
+                                <img src="{{thumb_fr.thumb1_img.url}}" class="d-block w-100" style="border-radius: 8px 8px 8px 8px;" alt="...">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            {% for thumb_sn in thumb_sns %}
+                            <div class="col-sm-4">
+                                <img src="{{thumb_sn.thumb2_img.url}}" class="d-block w-100" style="border-radius: 8px 8px 8px 8px;" alt="...">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            {% for thumb_tr in thumb_trs %}
+                            <div class="col-sm-4">
+                                <img src="{{thumb_tr.thumb3_img.url}}" class="d-block w-100" style="border-radius: 8px 8px 8px 8px;" alt="...">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselpickControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselpickControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </section>
+        <!-- Trend -->
+
+        <!-- Recently Played -->
+        <section id="recent">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-12 title">
+                        RECENTLY PLAYED
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <div>
+                        <h5><a href="recent" class="nav-link active viewall">View all ></a></h5>
+                    </div>
+                </div>
+            </div>
+            <section class="col-sm-12">
+                <div class="row rp">
+                    {% for recent in recents %}
+                    {% if forloop.counter < 7 %}
+                    <div class="col-sm-2">
+                        <div class="hovereffect">
+                            <img src="{{recent.recent_img.url}}" class="img-responsive img">
+                            <div class="overlay">
+                                <a class="btn btn-outline-light mt-5 mx-5" href="/recent/{{recent.id}}"><i class="fa fa-play" aria-hidden="true"></i></a>
+                            </div>
+                            <center><h6 class="cap">{{recent.recent_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+        <!-- Recently Played -->
+
+        <!-- Top Charts -->
+        <section id="topcharts">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-12 title">
+                        TOP CHARTS
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <div>
+                        <h5><a href="topcharts" class="nav-link active viewall">View all ></a></h5>
+                    </div>
+                </div>
+            </div>
+            <section class="col-sm-12">
+                <div class="row rp">
+                    {% for top in tops %}
+                    {% if forloop.counter < 7 %}
+                    <div class="col-sm-2">
+                        <div class="hovereffect">
+                            <a href='/topchartspost/{{top.id}}'><img src="{{top.top_img.url}}" class="img-responsive img"></a>
+                            <center><h6 class="cap">{{top.top_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+        <!-- Top Charts -->
+
+        <!-- Trending Songs -->
+        <section id="trendingsongs">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-12 title">
+                        TRENDING SONGS
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <div>
+                        <h5><a href="trend" class="nav-link active viewall">View all ></a></h5>
+                    </div>
+                </div>
+            </div>
+            <section class="col-sm-12">
+                <div class="row rp">
+                    {% for trend in trends %}
+                    {% if forloop.counter < 7 %}
+                    <div class="col-sm-2">
+                        <div class="hovereffect">
+                            <img src="{{trend.trend_img.url}}" class="img-responsive img">
+                            <div class="overlay">
+                                <a class="btn btn-outline-light mt-5 mx-5" href="/trend/{{trend.id}}"><i class="fa fa-play" aria-hidden="true"></i></a>
+                            </div>
+                            <center><h6 class="cap">{{trend.trend_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+        <!-- Trending Songs -->
+
+        <!-- Artists -->
+        <section id="artists" class="last">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-12 title">
+                        ARTISTS
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <div>
+                        <h5><a href="artists" class="nav-link active viewall">View all ></a></h5>
+                    </div>
+                </div>
+            </div>
+            <section class="col-sm-12">
+                <div class="row rp">
+                    {% for artist in artists %}
+                    {% if forloop.counter < 7 %}
+                    <div class="col-sm-2">
+                        <div class="hovereffect">
+                            <a href='/artistspost/{{artist.id}}'><img src="{{artist.artists_img.url}}" class="img-responsive img"></a>
+                            <center><h6 class="cap">{{artist.artists_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+        <!-- Artistss -->
+        
+    {% endblock content %}

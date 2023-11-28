@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+    {% block content %}
+
+        <!-- Artists -->
+        <section id="artists" class="last">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-12 title">
+                        ARTISTS
+                    </div>
+                </div>
+            </div>
+            <section class="col-lg-12">
+                <div class="row rp">
+                    {% for artist in artists %}
+                    <div class="col-lg-2">
+                        <div class="hovereffect">
+                            <a href='/artistspost/{{artist.id}}'><img src="{{artist.artists_img.url}}" class="img-responsive img"></a>
+                            <center><h6 class="cap">{{artist.artists_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+        <!-- Artistss -->
+        
+    {% endblock content %}

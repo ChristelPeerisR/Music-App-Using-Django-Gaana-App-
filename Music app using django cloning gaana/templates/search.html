@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+    {% block content %}
+
+        <!-- Search Result -->
+        <section id="recent">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-12 title">
+                        Your search Result for "{{query}}":
+                    </div>
+                </div>
+            </div>
+            <section class="col-lg-12">
+                <div class="row rp">
+                    {% for recent in recents %}
+                    <div class="col-lg-2">
+                        <div class="hovereffect">
+                            <img src="{{recent.recent_img.url}}" class="img-responsive img">
+                            <div class="overlay">
+                                <a class="btn btn-outline-light mt-5 mx-5" href="/recent/{{recent.id}}"><i class="fa fa-play" aria-hidden="true"></i></a>
+                            </div>
+                            <center><h6 class="cap">{{recent.recent_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% for top in tops %}
+                    <div class="col-lg-2">
+                        <div class="hovereffect">
+                            <a href='recent'><img src="{{top.top_img.url}}" class="img-responsive img"></a>
+                            <center><h6 class="cap">{{top.top_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% for trend in trends %}
+                    <div class="col-lg-2">
+                        <div class="hovereffect">
+                            <img src="{{trend.trend_img.url}}" class="img-responsive img">
+                            <div class="overlay">
+                                <a class="btn btn-outline-light mt-5 mx-5" href="/trend/{{trend.id}}"><i class="fa fa-play" aria-hidden="true"></i></a>
+                            </div>
+                            <center><h6 class="cap">{{trend.trend_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% for artist in artists %}
+                    <div class="col-lg-2">
+                        <div class="hovereffect">
+                            <a href='trend'><img src="{{artist.artists_img.url}}" class="img-responsive img"></a>
+                            <center><h6 class="cap">{{artist.artists_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+        <!-- Search Result -->
+        
+    {% endblock content %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+    {% block content %}
+
+        <!-- Recent Song -->
+        {% for recent in recents %}
+        <div class="container" style="padding-top: 100px;">
+            <div class="card mb-3" style="max-width: 800px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{recent.recent_img.url}}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 class="card-title cap">{{recent.recent_name}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- Recent Song -->
+
+        <!-- Footer -->
+        <section>
+            <div class="container-fluid fixed-bottom bg-light">
+                <div class="row">
+                    {% for recent in recents %}
+                    <div class="col-sm-3">
+                        <div class="media">
+                            <img src="{{recent.recent_img.url}}" class="align-self-center mr-3 playimg" alt="">
+                            <div class="media-body text-white">
+                                <h5 class="play" style="padding-top: 15px;">{{recent.recent_name}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 audio">
+                        <audio src="{{recent.recent_file.url}}" class="music" controls></audio>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        
+    {% endblock content %}
+
+        

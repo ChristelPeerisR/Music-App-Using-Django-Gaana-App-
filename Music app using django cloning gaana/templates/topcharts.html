@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+    {% block content %}
+
+        <!-- Top Charts -->
+        <section id="topcharts">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-12 title">
+                        TOP CHARTS
+                    </div>
+                </div>
+            </div>
+            <section class="col-lg-12">
+                <div class="row rp">
+                    {% for top in tops %}
+                    <div class="col-lg-2">
+                        <div class="hovereffect">
+                            <a href='/topchartspost/{{top.id}}'><img src="{{top.top_img.url}}" class="img-responsive img"></a>
+                            <center><h6 class="cap">{{top.top_name}}</h6></center>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+        <!-- Top Charts -->
+        
+    {% endblock content %}
